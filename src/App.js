@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
-import { BiSearch, BiBell, BiChevronRight } from "react-icons/bi";
+import { BiSearch, BiBell, BiChevronRight, BiMenu } from "react-icons/bi";
 
 function MainNav({ setIsOpen }) {
   return (
     <nav>
       <img src={"./logo.png"} alt="logo" className="logo" />
       <ul className="main">
+        <li className="main_item home">홈</li>
         <li
           className="main_item"
           onMouseOver={() => {
@@ -24,7 +25,7 @@ function MainNav({ setIsOpen }) {
           커리어 성장
         </li>
         <li
-          className="main_item"
+          className="main_item hide"
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -32,7 +33,7 @@ function MainNav({ setIsOpen }) {
           직군별 연봉
         </li>
         <li
-          className="main_item"
+          className="main_item hide"
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -40,7 +41,7 @@ function MainNav({ setIsOpen }) {
           이력서
         </li>
         <li
-          className="main_item"
+          className="main_item hide"
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -48,7 +49,7 @@ function MainNav({ setIsOpen }) {
           매치업
         </li>
         <li
-          className="main_item"
+          className="main_item hide"
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -56,7 +57,7 @@ function MainNav({ setIsOpen }) {
           프리랜서
         </li>
       </ul>
-      <div style={{ display: "flex" }}>
+      <div className="left">
         <div className="user">
           <BiSearch size="22" />
           <BiBell size="22" />
@@ -64,6 +65,11 @@ function MainNav({ setIsOpen }) {
         </div>
         <div style={{ margin: "auto 0", background: "#c4c4c4", width: "1px", height: "12px" }} />
         <div className="biz_btn">기업 서비스</div>
+      </div>
+      <div className="icon-small">
+        <BiSearch size="22" />
+        <BiBell size="22" />
+        <BiMenu size="22" />
       </div>
     </nav>
   );
