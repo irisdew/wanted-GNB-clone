@@ -1,0 +1,144 @@
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  text-decoration: none;
+  list-style: none;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+nav {
+  width: 70%;
+  padding: 0 30px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 70px;
+  height: 60%;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.main {
+  display: flex;
+  width: 700px;
+}
+
+.main_item {
+  display: block;
+  height: 20px;
+  padding: 3px;
+  text-align: center;
+  position: relative;
+  margin: 0 15px 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.user {
+  width: 120px;
+  display: flex;
+  justify-content: space-around;
+  margin: auto 20px;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  background: url("https://cdn5.vectorstock.com/i/1000x1000/50/29/user-icon-male-person-symbol-profile-avatar-vector-20715029.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.main_item:after {
+  display: block;
+  width: 120%;
+  position: absolute;
+  left: -10%;
+  height: 12px;
+  content: "";
+  border-bottom: solid 2px #c4c4c4;
+  transform: scaleX(0);
+}
+
+.main_item:hover:after {
+  transform: scaleX(1);
+}
+
+/* .main_item:hover {
+  border-bottom: solid 2px #c4c4c4;
+} */
+
+.biz_btn {
+  width: 90px;
+  height: 20px;
+  padding: 3px 1px;
+  margin: 0 15px 0 20px;
+  cursor: pointer;
+  border: #c4c4c4 solid 1px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.inner {
+  width: 100%;
+  margin: 0 auto;
+
+  /* item__contents */
+  /* display: none; */
+
+  /* ul */
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inner > li {
+  width: 220px;
+}
+
+.inner > li h4 {
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 5px;
+  cursor: pointer;
+}
+
+.more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner > li ul li {
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+
+.sub-ul {
+  margin: 0;
+  padding: 0 15px;
+}
+
+.sub-ul > li {
+  margin-bottom: 5px;
+}
+
+.sub-card {
+  /* width: 220px; */
+}
