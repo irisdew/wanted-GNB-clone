@@ -1,15 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 import { BiSearch, BiBell, BiChevronRight, BiMenu } from "react-icons/bi";
 
 function MainNav({ setIsOpen }) {
+  // const initialState = {
+  //   0: false,
+  //   1: false,
+  //   2: false,
+  //   3: false,
+  //   4: false,
+  //   5: false,
+  //   6: false,
+  // };
+  const initialState = [false, false, false, false, false, false, false];
+  const [selected, setSelected] = useState(initialState);
+  const containerRef = useRef(null);
+
+  function handleClick(n) {
+    setSelected(initialState);
+    let newState = initialState.slice();
+    newState[n] = true;
+    setSelected(newState);
+  }
+
   return (
     <nav>
       <img src={"./logo.png"} alt="logo" className="logo" />
       <ul className="main">
-        <li className="main_item home">홈</li>
         <li
-          className="main_item"
+          className={selected[0] ? "selected main_item home" : "main_item home"}
+          id="0"
+          onClick={(e) => {
+            handleClick(e.target.id);
+          }}
+        >
+          홈
+        </li>
+        <li
+          className={selected[1] ? "selected main_item " : "main_item"}
+          id="1"
+          onClick={(e) => {
+            handleClick(e.target.id);
+          }}
           onMouseOver={() => {
             setIsOpen(true);
           }}
@@ -17,7 +49,11 @@ function MainNav({ setIsOpen }) {
           탐색
         </li>
         <li
-          className="main_item"
+          className={selected[2] ? "selected main_item " : "main_item"}
+          id="2"
+          onClick={(e) => {
+            handleClick(e.target.id);
+          }}
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -25,7 +61,11 @@ function MainNav({ setIsOpen }) {
           커리어 성장
         </li>
         <li
-          className="main_item hide"
+          className={selected[3] ? "selected main_item hide" : "main_item hide"}
+          id="3"
+          onClick={(e) => {
+            handleClick(e.target.id);
+          }}
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -33,7 +73,11 @@ function MainNav({ setIsOpen }) {
           직군별 연봉
         </li>
         <li
-          className="main_item hide"
+          className={selected[4] ? "selected main_item hide" : "main_item hide"}
+          id="4"
+          onClick={(e) => {
+            handleClick(e.target.id);
+          }}
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -41,7 +85,11 @@ function MainNav({ setIsOpen }) {
           이력서
         </li>
         <li
-          className="main_item hide"
+          className={selected[5] ? "selected main_item hide" : "main_item hide"}
+          id="5"
+          onClick={(e) => {
+            handleClick(e.target.id);
+          }}
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -49,7 +97,11 @@ function MainNav({ setIsOpen }) {
           매치업
         </li>
         <li
-          className="main_item hide"
+          className={selected[6] ? "selected main_item hide" : "main_item hide"}
+          id="6"
+          onClick={(e) => {
+            handleClick(e.target.id);
+          }}
           onMouseOver={() => {
             setIsOpen(false);
           }}
@@ -59,17 +111,17 @@ function MainNav({ setIsOpen }) {
       </ul>
       <div className="left">
         <div className="user">
-          <BiSearch size="22" />
-          <BiBell size="22" />
+          <BiSearch size="22" color="#333" />
+          <BiBell size="22" color="#333" />
           <div className="avatar"></div>
         </div>
         <div style={{ margin: "auto 0", background: "#c4c4c4", width: "1px", height: "12px" }} />
         <div className="biz_btn">기업 서비스</div>
       </div>
       <div className="icon-small">
-        <BiSearch size="22" />
-        <BiBell size="22" />
-        <BiMenu size="22" />
+        <BiSearch size="22" color="#333" />
+        <BiBell size="22" color="#333" />
+        <BiMenu size="22" color="#333" />
       </div>
     </nav>
   );
