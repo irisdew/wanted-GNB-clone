@@ -1,44 +1,84 @@
 import React, { useState } from "react";
 import "./App.css";
-import { BiSearch, BiBell, BiChevronRight, BiMinus, BiRotateLeft } from "react-icons/bi";
+import { BiSearch, BiBell, BiChevronRight } from "react-icons/bi";
 
-function MainNav() {
-  const [isOpen, setIsOpen] = useState(true);
-
+function MainNav({ setIsOpen }) {
   return (
     <nav>
-      <img src={"./logo.png"} alt="logo" class="logo" />
-      <ul class="main">
-        <li class="main_item">탐색</li>
-        <li class="main_item">커리어 성장</li>
-        <li class="main_item">직군별 연봉</li>
-        <li class="main_item">이력서</li>
-        <li class="main_item">매치업</li>
-        <li class="main_item">프리랜서</li>
+      <img src={"./logo.png"} alt="logo" className="logo" />
+      <ul className="main">
+        <li
+          className="main_item"
+          onMouseOver={() => {
+            setIsOpen(true);
+          }}
+        >
+          탐색
+        </li>
+        <li
+          className="main_item"
+          onMouseOver={() => {
+            setIsOpen(false);
+          }}
+        >
+          커리어 성장
+        </li>
+        <li
+          className="main_item"
+          onMouseOver={() => {
+            setIsOpen(false);
+          }}
+        >
+          직군별 연봉
+        </li>
+        <li
+          className="main_item"
+          onMouseOver={() => {
+            setIsOpen(false);
+          }}
+        >
+          이력서
+        </li>
+        <li
+          className="main_item"
+          onMouseOver={() => {
+            setIsOpen(false);
+          }}
+        >
+          매치업
+        </li>
+        <li
+          className="main_item"
+          onMouseOver={() => {
+            setIsOpen(false);
+          }}
+        >
+          프리랜서
+        </li>
       </ul>
       <div style={{ display: "flex" }}>
-        <div class="user">
+        <div className="user">
           <BiSearch size="22" />
           <BiBell size="22" />
-          <div class="avatar"></div>
+          <div className="avatar"></div>
         </div>
         <div style={{ margin: "auto 0", background: "#c4c4c4", width: "1px", height: "12px" }} />
-        <div class="biz_btn">기업 서비스</div>
+        <div className="biz_btn">기업 서비스</div>
       </div>
     </nav>
   );
 }
 
-function SubNav() {
+function SubNav({ isOpen }) {
   return (
-    <div style={{ width: "70%", height: "auto", margin: "auto" }}>
-      <ul class="inner">
-        <li class="sub-card">
+    <div className={isOpen ? "sub-container" : "sub-container hidden"}>
+      <ul className="inner">
+        <li className="sub-card">
           <h4>
             영업
             <BiChevronRight size="20" color="#999" />
           </h4>
-          <ul class="sub-ul">
+          <ul className="sub-ul">
             <li>기업영업</li>
             <li>외부영업</li>
             <li>영업 관리자</li>
@@ -46,7 +86,7 @@ function SubNav() {
             <li>주요고객사 담당자</li>
             <li>솔루션 컨설턴트</li>
             <li>해외영업</li>
-            <li class="more">
+            <li className="more">
               더보기
               <BiChevronRight size="20" color="#999" />
             </li>
@@ -56,7 +96,7 @@ function SubNav() {
           <h4>
             미디어 <BiChevronRight size="20" color="#999" />
           </h4>
-          <ul class="sub-ul">
+          <ul className="sub-ul">
             <li>콘텐츠 크리에이터</li>
             <li>PD</li>
             <li>영상 편집가</li>
@@ -64,7 +104,7 @@ function SubNav() {
             <li>비디오 제작</li>
             <li>작가</li>
             <li>출판 기획자</li>
-            <li class="more">
+            <li className="more">
               더보기
               <BiChevronRight size="20" color="#999" />
             </li>
@@ -74,7 +114,7 @@ function SubNav() {
           <h4>
             인사 <BiChevronRight size="20" color="#999" />
           </h4>
-          <ul class="sub-ul">
+          <ul className="sub-ul">
             <li>인사담당</li>
             <li>리크루터</li>
             <li>조직문화</li>
@@ -82,7 +122,7 @@ function SubNav() {
             <li>헤드헌터</li>
             <li>HRD</li>
             <li>HRBP</li>
-            <li class="more">
+            <li className="more">
               더보기
               <BiChevronRight size="20" color="#999" />
             </li>
@@ -92,7 +132,7 @@ function SubNav() {
           <h4>
             게임 제작 <BiChevronRight size="20" color="#999" />
           </h4>
-          <ul class="sub-ul">
+          <ul className="sub-ul">
             <li>게임 기획자</li>
             <li>게임 그래픽 디자이너</li>
             <li>모바일 게임 개발자</li>
@@ -100,7 +140,7 @@ function SubNav() {
             <li>게임 아티스트</li>
             <li>유니티 개발자</li>
             <li>게임 서버 개발자</li>
-            <li class="more">
+            <li className="more">
               더보기
               <BiChevronRight size="20" color="#999" />
             </li>
@@ -110,7 +150,7 @@ function SubNav() {
           <h4>
             금융 <BiChevronRight size="20" color="#999" />
           </h4>
-          <ul class="sub-ul">
+          <ul className="sub-ul">
             <li>회계담당</li>
             <li>재무 담당자</li>
             <li>IR</li>
@@ -118,7 +158,7 @@ function SubNav() {
             <li>재무 분석가</li>
             <li>애널리스트</li>
             <li>내부통제 담당자</li>
-            <li class="more">
+            <li className="more">
               더보기
               <BiChevronRight size="20" color="#999" />
             </li>
@@ -159,10 +199,11 @@ function SubNav() {
 }
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="App">
-      <MainNav />
-      <SubNav />
+      <MainNav setIsOpen={setIsOpen} />
+      <SubNav setIsOpen={setIsOpen} isOpen={isOpen} />
     </div>
   );
 }
